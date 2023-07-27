@@ -1,0 +1,28 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Transactions {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+                
+    <main class="content">
+
+        {% include 'includes/navigation.html' %}
+            <h1>Update Member</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Update Member">
+                </form>
+            <a href="{% url 'member_detail' %}">Back to Member List</a>
+        {% include 'includes/footer.html' %}
+
+    </main>
+    
+{% endblock content %}
+    
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
+    

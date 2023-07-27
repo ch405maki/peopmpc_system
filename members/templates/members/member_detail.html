@@ -1,0 +1,136 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Transactions {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+                
+    <main class="content">
+
+        {% include 'includes/navigation.html' %}
+
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+                <div class="d-block mb-4 mb-md-0">
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+                        <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                          <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
+                          <li class="breadcrumb-item"><a href="#">Members</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">List</li>
+                        </ol>
+                    </nav>
+                    <h2 class="h4">Members</h2>
+                    <p class="mb-0">Your List of Members.</p>
+                </div>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-primary">Share</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary">Export</button>
+                    </div>
+                </div>
+            </div>
+            <div class="table-settings mb-4">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col col-md-6 col-lg-3 col-xl-4">
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon2"><span class="fas fa-search"></span></span>
+                            <input type="text" class="form-control" id="exampleInputIconLeft" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2 col-xl-1 pl-md-0 text-right">
+                        <div class="btn-group">
+                            <a href="{% url 'create_member' %}">
+                                <button class="btn btn-secondary text-dark mr-2 dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                                    <span class="fas fa-plus mr-2"></span>New
+                                </button>
+                            </a> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card card-body border-light shadow-sm table-wrapper table-responsive pt-0">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>						
+                            <th>Age</th>
+                            <th>Email</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    {% for member in members %}
+                    <tbody>
+                        <!-- Item -->
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>
+                                <span class="font-weight-normal">{{ member.name }}</span>
+                            </td>
+                            <td><span class="font-weight-normal">{{ member.age }}</span></td>                        
+                            <td><span class="font-weight-normal">{{ member.email }}</span></td>
+                            <td><span class="font-weight-bold">$799,00</span></td>
+                            <td><span class="font-weight-bold text-warning">Due</span></td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="icon icon-sm">
+                                            <span class="fas fa-ellipsis-h icon-dark"></span>
+                                        </span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{% url 'view_member' member.pk %}"><span class="fas fa-eye mr-2"></span>View</a>
+                                        <a class="dropdown-item" href="{% url 'update_member' member.pk %}"><span class="fas fa-edit mr-2"></span>Edit</a>
+                                        <a class="dropdown-item text-danger" href="{% url 'delete_member' member.pk %}"><span class="fas fa-trash-alt mr-2"></span>Remove</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    {% empty %}
+                    <p>No members found.</p>
+                    {% endfor %}
+                </table>
+
+                <div class="card-footer px-3 border-0 d-flex align-items-center justify-content-between">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination mb-0">
+                            <li class="page-item">
+                                <a class="page-link" href="#">Previous</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">1</a>
+                            </li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#">2</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">3</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">4</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">5</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="font-weight-bold small">Showing <b>5</b> out of <b>25</b> entries</div>
+                </div>
+            </div>
+
+        {% include 'includes/footer.html' %}
+
+    </main>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

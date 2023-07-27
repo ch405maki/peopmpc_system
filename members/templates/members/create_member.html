@@ -1,0 +1,46 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Forms {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+                
+    <main class="content">
+
+        {% include 'includes/navigation.html' %}
+
+        <div class="py-4">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                    <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
+                    <li class="breadcrumb-item"><a href="#">Components</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Forms</li>
+                </ol>
+            </nav>
+            <div class="d-flex justify-content-between w-100 flex-wrap">
+                <div class="mb-3 mb-lg-0">
+                    <h1 class="h4">Forms</h1>
+                    <p class="mb-0">Dozens of reusable components built to provide buttons, alerts, popovers, and more.</p>
+                </div>
+                <div>
+                    <a href="#" class="btn btn-outline-gray"><i class="far fa-question-circle mr-1"></i> Forms Docs</a>
+                </div>
+            </div>
+        </div>
+
+        <h1>Create Member</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Save Member">
+        </form>
+
+        {% include 'includes/footer.html' %}
+
+    </main>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

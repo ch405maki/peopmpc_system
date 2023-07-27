@@ -1,0 +1,552 @@
+<!--
+
+=========================================================
+* Volt - Bootstrap 5 Admin Dashboard
+=========================================================
+
+* Product Page: https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard
+* Copyright 2020 Themesberg (https://www.themesberg.com)
+
+* Designed and coded by https://themesberg.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Please contact us to request a removal.
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- Primary Meta Tags -->
+<title>
+    Django Volt Dashboard - Presentation | AppSeed    
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="title" content="Volt - Free Bootstrap 5 Admin Dashboard">
+<meta name="author" content="Themesberg">
+<meta name="description" content="Volt is a free and open source Bootstrap 5 Admin Dashboard featuring 11 example pages, 100 components and 3 plugins with Vanilla JS.">
+<meta name="keywords" content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, free bootstrap 5 dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, themesberg, themesberg dashboard, themesberg admin dashboard" />
+<link rel="canonical" href="https://appseed.us/admin-dashboards/django-dashboard-volt">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://demo.themesberg.com/volt">
+<meta property="og:title" content="Volt - Free Bootstrap 5 Admin Dashboard">
+<meta property="og:description" content="Volt is a free and open source Bootstrap 5 Admin Dashboard featuring 11 example pages, 100 components and 3 plugins with Vanilla JS.">
+<meta property="og:image" content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/volt-bootstrap-5-dashboard/volt-bootstrap-5-dashboard-preview.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://demo.themesberg.com/volt">
+<meta property="twitter:title" content="Volt - Free Bootstrap 5 Admin Dashboard">
+<meta property="twitter:description" content="Volt is a free and open source Bootstrap 5 Admin Dashboard featuring 11 example pages, 100 components and 3 plugins with Vanilla JS.">
+<meta property="twitter:image" content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/volt-bootstrap-5-dashboard/volt-bootstrap-5-dashboard-preview.jpg">
+
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="120x120" href="/static/assets/img/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/assets/img/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/static/assets/img/favicon/favicon-16x16.png">
+<link rel="manifest" href="/static/assets/img/favicon/site.webmanifest">
+<link rel="mask-icon" href="/static/assets/img/favicon/safari-pinned-tab.svg" color="#ffffff">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Fontawesome -->
+<link type="text/css" href="/static/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+<!-- Notyf -->
+<link type="text/css" href="/static/assets/vendor/notyf/notyf.min.css" rel="stylesheet">
+
+<!-- Volt CSS -->
+<link type="text/css" href="/static/assets/css/volt.css" rel="stylesheet">
+
+<!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
+
+</head>
+
+<body>
+
+    <!-- check for loged in account -->
+    
+    {% if user.is_authenticated %}
+    <header class="header-global">
+        <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-main navbar-expand-lg navbar-theme-primary pt-4 navbar-dark">
+            <div class="container position-relative">
+                <div class="navbar-collapse collapse mr-auto" id="navbar_global">
+                    <div class="navbar-collapse-header">
+                        <div class="row">
+                            <div class="col-6 collapse-brand">
+                                <a href="/">
+                                    <img src="/static/assets/img/brand/light.svg" alt="Volt logo">
+                                </a>
+                            </div>
+                            <div class="col-6 collapse-close">
+                                <a href="#navbar_global" class="fas fa-times" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" title="close" aria-label="Toggle navigation"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+                        <li class="nav-item mr-2">
+                            <a href="/dashboard.html" class="nav-link">Dashboard</a>
+                        </li>
+                        <li class="nav-item mr-2">
+                            <a href="{% url 'profile' %}" class="nav-link">Profile</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="d-flex align-items-center ml-auto">
+                    <a href="{% url 'logout' %}" 
+                       class="btn btn-outline-soft d-none d-lg-block">
+                       <span class="fas fa-sign-out-alt mr-2"></span> Logout</a>
+                    <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    {% else %}
+    <header class="header-global">
+        <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-main navbar-expand-lg navbar-theme-primary pt-4 navbar-dark">
+            <div class="container position-relative">
+                <div class="navbar-collapse collapse mr-auto" id="navbar_global">
+                    <div class="navbar-collapse-header">
+                        <div class="row">
+                            <div class="col-6 collapse-brand">
+                                <a href="/">
+                                    <img src="/static/assets/img/brand/light.svg" alt="Volt logo">
+                                </a>
+                            </div>
+                            <div class="col-6 collapse-close">
+                                <a href="#navbar_global" class="fas fa-times" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" title="close" aria-label="Toggle navigation"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center ml-auto">
+                    <a href="{% url 'login' %}" 
+                       class="btn btn-secondary text-dark mr-md-3">
+                       <span class="fas fa-sign-out-alt mr-2"></span>
+                       Login
+                       </a>
+                    <!-- <a href="{% url 'login' %}" 
+                       class="btn btn-outline-soft d-none d-lg-block">
+                       <span class="fas fa-sign-out-alt mr-2"></span> Login</a>
+                    <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button> -->
+                </div>
+            </div>
+        </nav>
+    </header>
+    {% endif %}
+
+    <main>
+        <div class="preloader bg-soft flex-column justify-content-center align-items-center">
+            <img class="loader-element animate__animated animate__jackInTheBox" src="/static/assets/img/brand/light.svg" height="60" alt="Volt logo">
+        </div>
+
+        <!-- Hero -->
+        <section class="section-header pb-9 pb-lg-12 bg-primary text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <img class="navbar-brand-dark mb-4" src="/static/assets/img/logo.png" height="120" alt="Logo light">
+                        <h1 class="display-1">P E O P M P C</h1>
+                        <div class="mb-5">
+                            <h2 class="h3 text-muted mr-3">Provincial Engineering Office Personel Multi-Purpose Cooperative</h2>
+                        </div>
+                        <!-- Button Modal -->
+                        <div class="d-flex justify-content-center align-items-end flex-wrap mb-6">
+                            <a href="#" class="btn btn-secondary text-dark mr-4 mb-3 mb-lg-0"><span class="fas fa-chart-line mr-2 d-none d-sm-inline"></span>S E R V I C E S</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <figure class="position-absolute bottom-0 left-0 w-100 d-none d-md-block mb-n2"><svg class="fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4"><path d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z"></path></svg></figure>       
+        </section>
+        <div class="section pt-0">
+            <div class="container mt-n10 mt-lg-n12 z-2">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <img src="/static/assets/img/mockup-presentation.png" alt="Mockup presentation">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="section section-sm pt-0">
+            <div class="container">
+                <div class="row justify-content-center mb-5 mb-lg-6">
+                    <div class="col-12 text-center">
+                        <h2 class="h1 px-lg-5">THE BOARD OF DIRECTORS</h2>
+                        <p class="lead px-lg-10">Every page from Volt has been carefully built to provide all the necessary pages your startup will require</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-6 col-md-3 text-center mb-4">
+                        <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle icon-secondary mb-4">
+                            <span class="fas fa-user"></span>
+                        </div>
+                        <h3 class="font-weight-bolder">ATTY. WILLIAM C. PUDAY JR.</h3>
+                        <p class="text-gray">BOD Chairperson</p>
+                    </div>
+                    <div class="col-6 col-md-3 text-center mb-4">
+                        <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle icon-secondary mb-4">
+                            <span class="fas fa-user"></span>
+                        </div>
+                        <h3 class="font-weight-bolder">RODERICK I. DUMALLIG</h3>
+                        <p class="text-gray">BOD Vice - Chairperson</p>
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
+                        <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle icon-secondary mb-4">
+                            <span class="fas fa-user"></span>
+                        </div>
+                        <h3 class="font-weight-bolder">JAYFORD W. DONGDONGAN</h3>
+                        <p class="text-gray">EDCOM Chairperson</p>
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
+                        <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle icon-secondary mb-4">
+                            <span class="fas fa-user"></span>
+                        </div>
+                        <h3 class="font-weight-bolder">OLIVER T. LAYUGAN</h3>
+                        <p class="text-gray">MEMCOM Overseer</p>
+                    </div>
+                    <div class="col-6 col-md-3 text-center mb-4">
+                        <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle icon-secondary mb-4">
+                            <span class="fas fa-user"></span>
+                        </div>
+                        <h3 class="font-weight-bolder">MARIA LEONARDA C. OLYA-ON</h3>
+                        <p class="text-gray">GAD Chairperson</p>
+                    </div>
+                    <div class="col-6 col-md-3 text-center mb-4">
+                        <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle icon-secondary mb-4">
+                            <span class="fas fa-user"></span>
+                        </div>
+                        <h3 class="font-weight-bolder">SATURNINO B. DOMATOG</h3>
+                        <p class="text-gray">Infra & Business Overseer</p>
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
+                        <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle icon-secondary mb-4">
+                            <span class="fas fa-user"></span>
+                        </div>
+                        <h3 class="font-weight-bolder">ELDIEMER A. GUP-AY</h3>
+                        <p class="text-gray">Ethics Committee Chairperson</p>
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
+                        <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle icon-secondary mb-4">
+                            <span class="fas fa-user"></span>
+                        </div>
+                        <h3 class="font-weight-bolder">RAINELDA A. GASMENIA</h3>
+                        <p class="text-gray">COOP Secretary</p>
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
+                        <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle icon-secondary mb-4">
+                            <span class="fas fa-user"></span>
+                        </div>
+                        <h3 class="font-weight-bolder">MS. LETICIA L. ANGNGAD</h3>
+                        <p class="text-gray">Manager</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container">
+            <div class="row justify-content-center mb-5 mb-lg-6">
+                <div class="col-12 text-center">
+                    <h2 class="h1 px-lg-5">THE MANAGEMENT STAFF</h2>
+                    <p class="lead px-lg-10">JULIE B. CAPUYAN - Cashier III</p>
+                    <p class="lead px-lg-10">JENY GAIL T. AGYAO - Bookkeeper III</p>
+                    <p class="lead px-lg-10">LAARNI JILL P. ALNGAG - Business Operations Officer III</p>
+                    <p class="lead px-lg-10">GERALD REY M. REYES -Loan Officer III</p>
+                    <p class="lead px-lg-10">GLORY A. AWINGAN - Bookkeeper II</p>
+                    <p class="lead px-lg-10">JAN CATHERINE T. LUGAO - Cashier I</p>
+                    <p class="lead px-lg-10">HONORIO B. BANGIBANG -Loan Officer I</p>
+                    <p class="lead px-lg-10">FERDINAN L. MOSCOSO - Data Administrator</p>
+                    <p class="lead px-lg-10">WENDELL P. GALONG - Collector</p>
+                    <p class="lead px-lg-10">VHEA ROSE D. BAYAWOK- Records Clerk</p>
+                    <p class="lead px-lg-10">JORDAN G. ABAYON - Accounting Clerk</p>
+                    <p class="lead px-lg-10">GENOVEVA A. ALAQUIAO - Accounting Clerk</p>
+                    <p class="lead px-lg-10">DONDY T. BERNARDO - Sales Clerk (General Merchandie)</p>
+                    <p class="lead px-lg-10">LESTER B. CABABAG - Sales Clerk (Water Refilling Station)</p>
+                    <p class="lead px-lg-10">PETER EYMARDS A. WANDAGAN - Warehouseman</p>
+                    <p class="lead px-lg-10">NICHO B. DALIRE - Sales Aid</p>
+                    <p class="lead px-lg-10">JESSON B. ISICAN - Security Personel</p>
+                    <p class="lead px-lg-10">AQUINO M. AGPAD - Security Personel</p>
+                    <p class="lead px-lg-10">DELDIE K. DULAWON - Security Personel</p>
+                </div>
+            </div>
+        </div>
+    </section>
+        <section class="section section-lg bg-primary text-white">
+            <div class="container">
+                <div class="row justify-content-center mb-5 mb-lg-6">
+                    <div class="col-12 text-center">
+                        <h2 class="h1 px-lg-5">Awesome Services</h2>
+                        <p class="lead px-lg-8">You get all Bootstrap components fully customized. Besides, you receive numerous plugins out of the box and ready to use.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft text-primary rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <span class="icon icon-lg mb-4"><span class="fas fa-credit-card"></span></span>
+                                <h5 class="font-weight-bold text-primary">Credit</h5>
+                                <p align="left">-Regular Loan (Fixed Deposit)
+                                    <br>-Regular Loan X2!
+                                    <br>-Regular Loan X3!
+                                    <br>-Agricultural Loan
+                                    <br>Livelihood Loan
+                                    <br>-RATA Loan</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft text-primary rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <span class="icon icon-lg mb-4"><span class="fas fa-piggy-bank"></span></span>
+                                <h5 class="font-weight-bold text-primary">Banking</h5>
+                                <p align="left">-Fixed/Share Capital Deposit (Regular Membership)
+                                    <br>-Fixed/Share Capital Deposit (Minor Membership)
+                                    <br>-Savings Plan Deposit
+                                    <br>-Savings Deposit
+                                    <br>-Time Deposit</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft text-primary rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <span class="icon icon-lg mb-4"><span class="fas fa-mobile-alt"></span></span>
+                                <h5 class="font-weight-bold text-primary">Social</h5>
+                                    <p align="left">-Mortuary Aid Program
+                                        <br>-Medical Assistance
+                                        <br>-Social Assistance</p>
+                                <h5 class="font-weight-bold text-primary">Water Refilling Station</h5>
+                                    <p align="left">-Purified -Alkaline -Mineral
+                                        </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft text-primary rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <span class="icon icon-lg mb-4"><span class="fas fa-shopping-basket"></span></span>
+                                <h5 class="font-weight-bold text-primary">General Merchandise</h5>
+                                <p align="left">-Farm Inputs
+                                    <br>-Piggery Inputs
+                                    <br>-LPG
+                                    <br>-Rice
+                                    <br>-Grocery Items
+                                    <br>-Hog Raising Loan
+                                    <br>-Micro-Financing Loan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section section-lg line-bottom-soft">
+            <div class="container">
+                <div class="row justify-content-center mb-5 mb-lg-6">
+                    <div class="col-12 text-center">
+                        <h2 class="h1 px-lg-5">MISION, VISION, CORE VALUES</h2>
+                        <p class="lead px-lg-8">We have carefully crafted the perfect folder structure to ensure that finding the files you're looking for are easily reachable and well organized.</p>
+                    </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                    <div class="col-12 col-lg-6 mb-4">
+                        <div class="d-none d-lg-block mt-5">
+                            <h4>Mission</h4>
+                            <p class="lead mb-4"><i>"Create more economic opportunities for our members for meaningful lives"</i></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 mb-4">
+                        <div class="d-none d-lg-block mt-5">
+                            <h4>Vision</h4>
+                            <p class="lead mb-4"><i>"To become the most trusted cooperative in the country and a respected partner of the community we serve"</i></p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6 mb-4">
+                        <div class="d-none d-lg-block mt-5">
+                            <h4>Core Values</h4>
+                            <p class="lead mb-4"><i>"Live our mission we constantly ask how our choices improve the lives of our members. Our concern for them is what drives us to wrk with great urgency and to hold each other accountable."</i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section section-lg bg-primary text-white">
+            <div class="container">
+                <div class="row justify-content-center mb-5 mb-lg-6">
+                    <div class="col-12 text-center">
+                        <h2 class="h1 px-lg-5">Membership Application Process Flow</h2>
+                        <p class="lead px-lg-8">You get all Bootstrap components fully customized. Besides, you receive numerous plugins out of the box and ready to use.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft text-primary rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <span class="icon icon-lg mb-4"><span class="fab fa-bootstrap"></span></span>
+                                <h5 class="font-weight-bold text-primary">Bootstrap 5</h5>
+                                <p>Built with the most popular CSS Framework</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft text-primary rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <span class="icon icon-lg mb-4"><span class="fab fa-sass"></span></span>
+                                <h5 class="font-weight-bold text-primary">Sass</h5>
+                                <p>Variables and mixins to empower development</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft text-primary rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <span class="icon icon-lg mb-4"><span class="fas fa-mobile-alt"></span></span>
+                                <h5 class="font-weight-bold text-primary">Responsive</h5>
+                                <p>All pages and components are 100% responsive</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft text-primary rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <span class="icon icon-lg mb-4"><span class="fab fa-gulp"></span></span>
+                                <h5 class="font-weight-bold text-primary">Gulp</h5>
+                                <p>Gulp & BrowserSync for a flawless workflow</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft text-primary rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <span class="icon icon-lg mb-4"><span class="far fa-images"></span></span>
+                                <h5 class="font-weight-bold text-primary">Creative rights</h5>
+                                <p>All images, icons and fonts are licensed & free to use</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft text-primary rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <span class="icon icon-lg mb-4"><span class="far fa-file-alt"></span></span>
+                                <h5 class="font-weight-bold text-primary">Documentation</h5>
+                                <p>Everything that comes with Volt is well documented</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft text-primary rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <span class="icon icon-lg mb-4"><span class="fab fa-js-square"></span></span>
+                                <h5 class="font-weight-bold text-primary">Vanilla JS</h5>
+                                <p>jQuery is not a required dependency for Volt</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft text-primary rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <span class="icon icon-lg mb-4"><span class="fas fa-pen-fancy"></span></span>
+                                <h5 class="font-weight-bold text-primary">Design</h5>
+                                <p>Crafted by professional UI/UX designers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- footer section  -->
+    <footer class="footer py-6 bg-primary text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img class="navbar-brand-dark mb-4" height="35" src="/static/assets/img/logo.png" alt="Logo light">
+                    <span><p><i>Provincial Engineering Office Personel Multi-Purpose Cooperative</i></p></span>
+                    <p><i>CDA Reg. No.: 9520 - 15007223 <br> CIN No.: 0101150047</i></p>
+                    <ul class="social-buttons mb-5 mb-lg-0">
+                        <li>
+                            <a href="#" aria-label="twitter social link" class="icon-white mr-2">
+                                <span class="fab fa-twitter"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="icon-white mr-2" aria-label="facebook social link">
+                                <span class="fab fa-facebook"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" aria-label="github social link" class="icon-white mr-2">
+                                <span class="fab fa-github"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="icon-white" aria-label="dribbble social link" >
+                                <span class="fab fa-dribbble"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-5 mb-lg-0">
+                    <span class="h5">P E O P M P C</span>
+                    <ul class="links-vertical mt-2">
+                        <li><a target="_blank" href="#">Blog</a></li>
+                        <li><a target="_blank" href="#">Products</a></li>
+                        <li><a target="_blank" href="#">About Us</a></li>
+                        <li><a target="_blank" href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-6 mb-5 mb-lg-0">
+                    <span class="h5 mb-3 d-block">Contact Us</span>
+                    <ul class="nav flex-column">
+                        <li>
+                            <span class="sidebar-icon"><span class="fas fa-envelope"></span></span>
+                            <span>peopmpc@gmail.com</span>
+                        </li>
+                        <li>
+                            <span class="sidebar-icon"><span class="fas fa-mobile-alt"></span></span>
+                            <span>(074)-624-1282</span>
+                        </li>
+                        <li role="separator" class="dropdown-divider mt-2 mb-3 border-black"></li>
+                        <li>
+                            <span class="sidebar-icon"><span class="fas fa-mobile-alt"></span></span>
+                            <span> PEOPMPC Credit: 0955-380-5521 / 0961-316-7238</span>
+                        </li>
+                        <li>
+                            <span class="sidebar-icon"><span class="fas fa-mobile-alt"></span></span>
+                            <span> PEOPMPC General Merchandise: 0921-990-2489 / 0906-884-7833</span>
+                        </li>
+                        <li>
+                            <span class="sidebar-icon"><span class="fas fa-mobile-alt"></span></span>
+                            <span> PEOPMPC Water Reffiling Station: 0908-299-9171 / 0916-498-0226</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="bg-gray my-5">
+            <div class="row">
+                <div class="col mb-md-0">
+                    <!-- <a href="https://themesberg.com" target="_blank" class="d-flex justify-content-center">
+                        <img src="/static/assets/img/logo.png" height="25" class="mb-3" alt="Logo">
+                    </a> -->
+                    <div class="d-flex text-center justify-content-center align-items-center" role="contentinfo">
+                        <p class="font-weight-normal font-small mb-0">
+                            &copy; credits -<span class="current-year">2020</span> - by <a target="_blank" href="#">Mark</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    {% include 'includes/scripts.html' %}
+
+</body>
+</html>
