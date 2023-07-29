@@ -11,11 +11,25 @@
     <main class="content">
 
         {% include 'includes/navigation.html' %}
-            <h1>Member Detail - {{ member.name }}</h1>
-            <img src="{{ member.profile_picture.url }}" alt="{{ member.name }}" width="150">
-            <p>Name: {{ member.name }}</p>
-            <p>Age: {{ member.age }}</p>
-            <p>Email: {{ member.email }}</p>
+        <h1>Member Detail - {{ member.name }}</h1>
+        <img src="{{ member.profile_picture.url }}" alt="{{ member.name }}" width="150">
+        <p>Name: {{ member.name }}</p>
+        <p>Middle Name: {{ member.mname }}</p>
+        <p>Last Name: {{ member.lname }}</p>
+        <p>Suffix Name: {{ member.sname }}</p>
+        <p>Birthday: {{ member.birthday }}</p>
+        <p>Age: {{ member.age }}</p>
+        <p>Birthplace: {{ member.bplace }}</p>
+        <p>Email: {{ member.email }}</p>
+        <p>Gender: {{ member.gender }}</p>
+        <p>Civil Status: {{ member.civil_status }}</p>
+        <p>Educational Attainment: {{ member.educational_attainment }}</p>
+        <p>Type of ID 1: {{ member.type_of_id1 }}</p>
+        <p>Type of ID 2: {{ member.type_of_id2 }}</p>
+        <p>Type of ID 3: {{ member.type_of_id3 }}</p>
+        <p>ID 1 Number: {{ member.id1_number }}</p>
+        <p>ID 2 Number: {{ member.id2_number }}</p>
+        <p>ID 3 Number: {{ member.id3_number }}</p>
             <p>
                 <a href="{% url 'update_member' member.pk %}">Update</a> |
                 <a href="{% url 'delete_member' member.pk %}">Delete</a> |
