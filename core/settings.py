@@ -32,6 +32,8 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', SERVER]
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'crispy_forms',
+    'crispy_bootstrap4',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -133,3 +135,7 @@ STATICFILES_DIRS = (
 )
 #############################################################
 #############################################################
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
