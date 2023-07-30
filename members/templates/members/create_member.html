@@ -136,44 +136,42 @@
                 </div>
             </div>
 
-        <!-- working on -->
             <h2 class="h4">Permanent Address</h2>
             <li role="separator" class="dropdown-divider mt-2 mb-3 border-black"></li>
 
             <div class="row">
                 <div class="col-md-2 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.email.id_for_label }}">Street/Block/Bldg. No.</label>
-                        {{ form.email }}
+                        <label for="{{ form.permanent_street.id_for_label }}">Street/Block/Bldg. No.</label>
+                        {{ form.permanent_street }}
                     </div>
                 </div>
                 <div class="col-md-2 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.email.id_for_label }}">Purok/Sitio/Subdivision</label>
-                        {{ form.email }}
+                        <label for="{{ form.permanent_purok.id_for_label }}">Purok/Sitio/Subdivision</label>
+                        {{ form.permanent_purok }}
                     </div>
                 </div>
                 <div class="col-md-2 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.email.id_for_label }}">Barangay</label>
-                        {{ form.email }}
+                        <label for="{{ form.permanent_barangay.id_for_label }}">Barangay</label>
+                        {{ form.permanent_barangay }}
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.email.id_for_label }}">Town/City</label>
-                        {{ form.email }}
+                        <label for="{{ form.permanent_city.id_for_label }}">Town/City</label>
+                        {{ form.permanent_city }}
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.email.id_for_label }}">Province</label>
-                        {{ form.email }}
+                        <label for="{{ form.permanent_province.id_for_label }}">Province</label>
+                        {{ form.permanent_province }}
                     </div>
                 </div>
             </div>
 
-        <!-- working on -->
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="h4">Current Address <p class="mb-0 d-inline"><i>(if boarding house/apartment/temporary/etc.)</i></p></h2>
@@ -184,47 +182,48 @@
             <div class="row">
                 <div class="col-md-2 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.email.id_for_label }}">Street/Block/Bldg. No.</label>
-                        {{ form.email }}
+                        <label for="{{ form.current_street.id_for_label }}">Street/Block/Bldg. No.</label>
+                        {{ form.current_street }}
                     </div>
                 </div>
                 <div class="col-md-2 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.email.id_for_label }}">Purok/Sitio/Subdivision</label>
-                        {{ form.email }}
+                        <label for="{{ form.current_purok.id_for_label }}">Purok/Sitio/Subdivision</label>
+                        {{ form.current_purok }}
                     </div>
                 </div>
                 <div class="col-md-2 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.email.id_for_label }}">Barangay</label>
-                        {{ form.email }}
+                        <label for="{{ form.current_barangay.id_for_label }}">Barangay</label>
+                        {{ form.current_barangay }}
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.email.id_for_label }}">Town/City</label>
-                        {{ form.email }}
+                        <label for="{{ form.current_city.id_for_label }}">Town/City</label>
+                        {{ form.current_city }}
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.email.id_for_label }}">Province</label>
-                        {{ form.email }}
+                        <label for="{{ form.current_province.id_for_label }}">Province</label>
+                        {{ form.current_province }}
                     </div>
                 </div>
             </div>
+            
 
             <div class="row">
                 <div class="col-md-3 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.email.id_for_label }}">Years of Residence</label>
-                        {{ form.email }}
+                        <label for="{{ form.years_residence.id_for_label }}">Years of Residence</label>
+                        {{ form.years_residence }}
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.email.id_for_label }}">Contact Number</label>
-                        {{ form.email }}
+                        <label for="{{ form.contact_number.id_for_label }}">Contact Number</label>
+                        {{ form.contact_number }}
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
@@ -235,6 +234,7 @@
                 </div>
             </div>
 
+        <!-- working on -->
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="h4">Occupation</h2>
@@ -245,40 +245,40 @@
             <div class="row">
                 <div class="col-md-3 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.type_of_id3.id_for_label }}">Occupation</label>
-                        {{ form.type_of_id3}}
+                        <label for="{{ form.occupation.id_for_label }}">Occupation</label>
+                        {{ form.occupation }}
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.email.id_for_label }}">Name of Employer/ Agency/ Company/ Business</label>
-                        {{ form.email }}
+                        <label for="{{ form.employer_name.id_for_label }}">Name of Employer/Agency/Company/Business</label>
+                        {{ form.employer_name }}
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.type_of_id3.id_for_label }}">Nature of Work/Position/Business</label>
-                        {{ form.name}}
+                        <label for="{{ form.nature_of_work.id_for_label }}">Nature of Work/Position/Business</label>
+                        {{ form.nature_of_work }}
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-3 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.type_of_id3.id_for_label }}">No. of Years in Service</label>
-                        {{ form.type_of_id3}}
+                        <label for="{{ form.years_in_service.id_for_label }}">No. of Years in Service</label>
+                        {{ form.years_in_service }}
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.email.id_for_label }}">Contact Number of Employer/ Agency/ Company/ Business</label>
-                        {{ form.email }}
+                        <label for="{{ form.employer_contact_number.id_for_label }}">Contact Number of Employer/Agency/Company/Business</label>
+                        {{ form.employer_contact_number }}
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.type_of_id3.id_for_label }}">Annual Income</label>
-                        {{ form.type_of_id3}}
+                        <label for="{{ form.annual_income.id_for_label }}">Annual Income</label>
+                        {{ form.annual_income }}
                     </div>
                 </div>
             </div>
@@ -287,32 +287,32 @@
             <div class="row">
                 <div class="col-md-2 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.email.id_for_label }}">Street/Block/Bldg. No.</label>
-                        {{ form.email }}
+                        <label for="{{ form.employer_street.id_for_label }}">Street/Block/Bldg. No.</label>
+                        {{ form.employer_street }}
                     </div>
                 </div>
                 <div class="col-md-2 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.email.id_for_label }}">Purok/Sitio/Subdivision</label>
-                        {{ form.email }}
+                        <label for="{{ form.employer_purok.id_for_label }}">Purok/Sitio/Subdivision</label>
+                        {{ form.employer_purok }}
                     </div>
                 </div>
                 <div class="col-md-2 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.email.id_for_label }}">Barangay</label>
-                        {{ form.email }}
+                        <label for="{{ form.employer_barangay.id_for_label }}">Barangay</label>
+                        {{ form.employer_barangay }}
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.email.id_for_label }}">Town/City</label>
-                        {{ form.email }}
+                        <label for="{{ form.employer_city.id_for_label }}">Town/City</label>
+                        {{ form.employer_city }}
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.email.id_for_label }}">Province</label>
-                        {{ form.email }}
+                        <label for="{{ form.employer_province.id_for_label }}">Province</label>
+                        {{ form.employer_province }}
                     </div>
                 </div>
             </div>
@@ -323,25 +323,25 @@
             <div class="row">
                 <div class="col-md-3 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.lname.id_for_label }}">Last Name</label>
-                        {{ form.lname }}
+                        <label for="{{ form.slname.id_for_label }}">Last Name</label>
+                        {{ form.slname }}
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.name.id_for_label }}">First Name</label>
-                        {{ form.name }}
+                        <label for="{{ form.sname.id_for_label }}">First Name</label>
+                        {{ form.sname }}
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.name.id_for_label }}">Middle Name</label>
-                        {{ form.mname }}
+                        <label for="{{ form.smname.id_for_label }}">Middle Name</label>
+                        {{ form.smname }}
                     </div>
                 </div>
                 <div class="col-md-2 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.name.id_for_label }}">Suffix</label>
+                        <label for="{{ form.ssname.id_for_label }}">Suffix</label>
                         {{ form.sname }}
                     </div>
                 </div>
@@ -349,35 +349,34 @@
 
             <div class="row">
                 <div class="col-md-3 mb-3">
-                    <label for="birthday">Birthday</label>
+                    <label for="sbirthday">Birthday</label>
                     <div class="input-group">
                         <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
-                        <input name="birthday" data-datepicker="" class="form-control" id="birthday"
-                            type="text" placeholder="dd/mm/yyyy" value="{{ member.birthday|date:'m/d/Y'|default:'' }}" required>
+                        <input name="sbirthday" data-datepicker="" class="form-control" id="sbirthday"
+                            type="text" placeholder="dd/mm/yyyy" value="{{ member.sbirthday|date:'m/d/Y'|default:'' }}" required>
                     </div>
                 </div>
                 <div class="col-md-2 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.age.id_for_label }}">Age</label>
-                        {{ form.age }}
+                        <label for="{{ form.sage.id_for_label }}">Age</label>
+                        {{ form.sage }}
                     </div>
                 </div>
                 <div class="col-md-7 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.bplace.id_for_label }}">Birth Place</label>
-                        {{ form.bplace }}
+                        <label for="{{ form.sbplace.id_for_label }}">Birth Place</label>
+                        {{ form.sbplace }}
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-5 mb-3">
                     <div class="form-group">
-                        <label for="{{ form.educational_attainment.id_for_label }}">Educaonal Attainment</label>
-                        {{ form.educational_attainment }}
+                        <label for="{{ form.seducational_attainment.id_for_label }}">Educaonal Attainment</label>
+                        {{ form.seducational_attainment }}
                     </div>
                 </div>
             </div>
-
 
             <div class="row">
                 <div class="col-4">
@@ -404,6 +403,7 @@
             </div>
             
             <!-- submit Button -->
+            <!-- <input type="submit" name="next_page" value="Next"> -->
             <button type="submit" class="btn btn-primary">Save</button>
         </form>
 

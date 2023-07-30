@@ -1,47 +1,368 @@
-<!DOCTYPE html>
 {% extends "layouts/base.html" %}
+{% load static %}
 
-{% block title %} Transactions {% endblock %} 
+{% block title %} Settings {% endblock %}
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
-                
+
     <main class="content">
 
         {% include 'includes/navigation.html' %}
-        <h1>Member Detail - {{ member.name }}</h1>
-        <img src="{{ member.profile_picture.url }}" alt="{{ member.name }}" width="150">
-        <p>Name: {{ member.name }}</p>
-        <p>Middle Name: {{ member.mname }}</p>
-        <p>Last Name: {{ member.lname }}</p>
-        <p>Suffix Name: {{ member.sname }}</p>
-        <p>Birthday: {{ member.birthday }}</p>
-        <p>Age: {{ member.age }}</p>
-        <p>Birthplace: {{ member.bplace }}</p>
-        <p>Email: {{ member.email }}</p>
-        <p>Gender: {{ member.gender }}</p>
-        <p>Civil Status: {{ member.civil_status }}</p>
-        <p>Educational Attainment: {{ member.educational_attainment }}</p>
-        <p>Type of ID 1: {{ member.type_of_id1 }}</p>
-        <p>Type of ID 2: {{ member.type_of_id2 }}</p>
-        <p>Type of ID 3: {{ member.type_of_id3 }}</p>
-        <p>ID 1 Number: {{ member.id1_number }}</p>
-        <p>ID 2 Number: {{ member.id2_number }}</p>
-        <p>ID 3 Number: {{ member.id3_number }}</p>
-            <p>
-                <a href="{% url 'update_member' member.pk %}">Update</a> |
-                <a href="{% url 'delete_member' member.pk %}">Delete</a> |
-                <a href="{% url 'view_member' member.pk %}">View</a>
-            </p>
-            <a href="{% url 'member_detail' %}">Back to Member List</a>
+
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+            <div>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                            <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
+                            <li class="breadcrumb-item"><a href="#">Membership</a></li>
+                            <li class="breadcrumb-item"><a href="#">View</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Information</li>
+                        </ol>
+                    </nav>
+                <h2 class="h4">{{ member.lname }} Personal Information</h2>           
+            </div>
+
+            <div>
+                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                    <span class="fas fa-clipboard mr-2"></span>Action
+                    <span class="icon icon-small ml-1"><span class="fas fa-chevron-down"></span></span>
+                </button>
+                <div class="dropdown-menu dashboard-dropdown dropdown-menu-left mt-2">
+                    <a class="dropdown-item font-weight-bold" href="#"><span class="fas fa-print mr-2"></span>Print</a>
+                    <a class="dropdown-item font-weight-bold" href="#"><span class="fas fa-download mr-2"></span>Export</a>
+                    <div role="separator" class="dropdown-divider"></div>
+                    <a class="dropdown-item font-weight-bold" href="#"><span
+                            class="fas fa-rocket text-success mr-2"></span>Other</a>
+                </div>
+            </div>
+        </div>
+
+            <div class="row">
+                <div class="col-12 col-xl-8">
+                    <div class="card card-body bg-white border-light shadow-sm mb-4 scrollable-card">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div>
+                                    <label for="first_name">Full Name</label>
+                                    <input name="last_name" class="form-control" id="last_name" type="text"
+                                        value="{{ member.name }} {{ member.mname }}, {{ member.lname }}"
+                                    readonly>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div>
+                                    <label for="first_name">Full Name</label>
+                                    <input name="last_name" class="form-control" id="last_name" type="text"
+                                        value="{{ member.lname }}"
+                                    readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row align-items-center">
+                            <div class="col-md-6 mb-3">
+                                <label for="birthday">Birthday</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
+                                    <input name="birthday" data-datepicker="" class="form-control" id="birthday"
+                                        value="{{ member.birthday|date:'m/d/Y'|default:'' }}" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div>
+                                    <label>Age</label>
+                                    <input class="form-control" type="text"
+                                        value="{{ member.age }}"
+                                    readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div>
+                                    <label>Gender</label>
+                                    <input class="form-control" type="text"
+                                        value="{{ member.gender }}"
+                                    readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div>
+                                    <label>Birth Place</label>
+                                    <input class="form-control" type="text"
+                                        value="{{ member.bplace }}"
+                                    readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div>
+                                    <label>Civil Status</label>
+                                    <input class="form-control" type="text"
+                                        value="{{ member.civil_status }}"
+                                    readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div>
+                                    <label>Educational Attainment</label>
+                                    <input class="form-control" type="text"
+                                        value="{{ member.educational_attainment }}"
+                                    readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table">
+                            <thead  class="thead-dark" >
+                              <tr>
+                                <th scope="col">Type of ID</th>
+                                <th scope="col">ID Number</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>{{ member.type_of_id1 }}</td>
+                                <td>{{ member.id1_number }}</td>
+                              </tr>
+                              <tr>
+                                <td>{{ member.type_of_id2 }}</td>
+                                <td>{{ member.id2_number }}</td>
+                              </tr>
+                              <tr>
+                                <td>{{ member.type_of_id3 }}</td>
+                                <td>{{ member.id3_number }}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                        <h2 class="h5 my-4">Permanent Address</h2>
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">{{ member.permanent_street }}</th>
+                                <th scope="col">{{ member.permanent_purok }}</th>
+                                <th scope="col">{{ member.permanent_barangay }}</th>
+                                <th scope="col"> {{ member.permanent_city }}</th>
+                                <th scope="col">{{ member.permanent_province }}</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td><i>Street</i></td>
+                                <td><i>Purok</i></td>
+                                <td><i>Barangay</i></td>
+                                <td><i>City</i></td>
+                                <td><i>Province</i></td>
+                              </tr>
+                            </tbody>
+                        </table>
+                          <h2 class="h5 my-4">Current Address</h2>
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">{{ member.current_street }}</th>
+                                <th scope="col">{{ member.current_purok }}</th>
+                                <th scope="col">{{ member.current_barangay }}</th>
+                                <th scope="col"> {{ member.current_city }}</th>
+                                <th scope="col">{{ member.current_province }}</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td><i>Street</i></td>
+                                <td><i>Purok</i></td>
+                                <td><i>Barangay</i></td>
+                                <td><i>City</i></td>
+                                <td><i>Province</i></td>
+                              </tr>
+                            </tbody>
+                        </table>
+                          <br>
+                          <div class="row">
+                            <div class="col-md-2 mb-3">
+                                <div>
+                                    <label>Years of Residence</label>
+                                    <input class="form-control" type="text"
+                                        value="{{ member.years_residence }}"
+                                    readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div>
+                                    <label>Email</label>
+                                    <input class="form-control" type="text"
+                                        value="{{ member.email }}"
+                                    readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div>
+                                    <label>Contact</label>
+                                    <input class="form-control" type="text"
+                                        value="{{ member.contact_number }}"
+                                    readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <h2 class="h5 my-4">Occupation</h2>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div>
+                                    <label>Occupation</label>
+                                    <input class="form-control" type="text"
+                                        value="{{ member.occupation }}"
+                                    readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div>
+                                    <label>Name of Employer</label>
+                                    <input class="form-control" type="text"
+                                        value="{{ member.employer_name }}"
+                                    readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <div>
+                                    <label>Nature of Work</label>
+                                    <input class="form-control" type="text"
+                                        value="{{ member.nature_of_work }}"
+                                    readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div>
+                                    <label>Years in Service</label>
+                                    <input class="form-control" type="text"
+                                        value="{{ member.years_in_service }}"
+                                    readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div>
+                                    <label>Contact Number</label>
+                                    <input class="form-control" type="text"
+                                        value="{{ member.employer_contact_number }}"
+                                    readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <h2 class="h5 my-4">Address of Employer/Agency/Company/Bussiness</h2>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">{{ member.employer_street }}</th>
+                                    <th scope="col">{{ member.employerpurok }}</th>
+                                    <th scope="col">{{ member.employer_barangay }}</th>
+                                    <th scope="col"> {{ member.employer_city }}</th>
+                                    <th scope="col">{{ member.employer_province }}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><i>Street</i></td>
+                                    <td><i>Purok</i></td>
+                                    <td><i>Barangay</i></td>
+                                    <td><i>City</i></td>
+                                    <td><i>Province</i></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div>
+                                        <label>Anual Income</label>
+                                        <input class="form-control" type="text"
+                                            value="{{ member.annual_income }}"
+                                        readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2 class="h5 my-4">If Married, Spouse Information</h2>
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <div>
+                                        <label for="first_name">Full Name</label>
+                                        <input name="last_name" class="form-control" id="last_name" type="text"
+                                            value="{{ member.sname }} {{ member.smname }}, {{ member.slname }}"
+                                        readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="birthday">Birthday</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
+                                        <input name="sbirthday" data-datepicker="" class="form-control" id="sbirthday"
+                                            value="{{ member.sbirthday|date:'m/d/Y'|default:'' }}" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div>
+                                        <label>Age</label>
+                                        <input class="form-control" type="text"
+                                            value="{{ member.sage }}"
+                                        readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 mb-3">
+                                    <div>
+                                        <label>Birth Place</label>
+                                        <input class="form-control" type="text"
+                                            value="{{ member.sbplace }}"
+                                        readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div>
+                                        <label>Educational Attainment</label>
+                                        <input class="form-control" type="text"
+                                            value="{{ member.seducational_attainment }}"
+                                        readonly>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-4">
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="card border-light text-center p-0">
+                                <div class="profile-cover rounded-top"
+                                     data-background="/static/assets/img/profile-cover.jpg"></div>
+                                <div class="card-body pb-5">
+                                    <img src="{{ member.profile_picture.url }}"
+                                         class="user-avatar large-avatar rounded-circle mx-auto mt-n7 mb-4"
+                                         alt="Neil Portrait">
+                                    <h4 class="h4">Account Number:</h4>
+                                    <h4 class="font-weight-normal">{{ member.name }} {{ member.mname }}. {{ member.lname }}</h4>
+                                    <h5 class="font-weight-normal">
+                                        {{ member.email }}
+                                    </h5>
+                                    <p class="text-gray mb-4">{{ member.current_barangay }} {{ member.current_city }} {{ member.current_province }}</p>
+                                    <a class="btn btn-sm btn-primary mr-2" href="#"><span
+                                            class="fas fa-user-plus mr-1"></span> Connect</a>
+                                    <a class="btn btn-sm btn-secondary" href="#">Send Message</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         {% include 'includes/footer.html' %}
 
     </main>
-    
+
 {% endblock content %}
-    
+
 <!-- Specific Page JS goes HERE  -->
 {% block javascripts %}{% endblock javascripts %}
-    
