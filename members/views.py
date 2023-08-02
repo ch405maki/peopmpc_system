@@ -17,14 +17,29 @@ def create_member(request):
         if form.is_valid():
             form.save()
             return redirect('member_detail')
+        else:
+            print(form.errors)
     else:
         form = MemberForm()
-    return render(request, 'members/create_member.html', {'form': form})
+    if request.user.is_authenticated:
+        # User is logged in, redirect to the create_member.html template
+        return render(request, 'members/create_member.html', {'form': form})
+    else:
+        # User is not logged in, show the register_member.html template
+        return render(request, 'members/register_member.html', {'form': form})
 
 
 def member_detail(request):
+    # Get the search query from the URL parameter 'q'
+    search_query = request.GET.get('q', '')
+    # Initialize a queryset with all members
     members = Member.objects.all()
-    return render(request, 'members/member_detail.html', {'members': members})
+    
+    if search_query:
+        # If there's a search query, filter the members based on the name field
+        members = members.filter(name__icontains=search_query)
+
+    return render(request, 'members/member_detail.html', {'members': members, 'search_text': search_query})
 
 class MemberUpdateView(UpdateView):
     model = Member

@@ -46,7 +46,7 @@ class MemberForm(forms.ModelForm):
             'employer_city',
             'employer_province',
             'slname',
-            'sname',
+            'sfname',
             'smname',
             'ssname',
             'sbirthday',
@@ -54,4 +54,6 @@ class MemberForm(forms.ModelForm):
             'sbplace',
             'seducational_attainment',
             'profile_picture',
+            'account_number',
+            'status',
         ]

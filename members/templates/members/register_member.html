@@ -5,12 +5,24 @@
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
-
 {% block content %}
-                
-    <main class="content">
 
-        {% include 'includes/navigation.html' %}
+
+
+
+<nav class="navbar container-fluid fixed-top navbar-dark bg-dark">
+    <div class="container"><a class="navbar-brand" href="#">
+        <img src="/static/assets/img/logo.png" style="width: 30%;" alt="Logo" class="img-fluid">
+        <span><b style="margin-left: 10px;">P E O P M P C</b></span>
+        <div class="d-flex align-items-center ml-auto">
+            <a href="/" 
+               class="btn btn-outline-soft d-none d-lg-block">
+               <span class="fas fa-sign-out-alt mr-2"></span> Home</a>
+            </button>
+        </div>
+    </a></div>
+</nav>
+    <main class="container">
 
         <div class="py-4">
             <nav aria-label="breadcrumb">

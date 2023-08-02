@@ -35,8 +35,8 @@
                     <div class="col col-md-6 col-lg-3 col-xl-4">
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon2"><span class="fas fa-search"></span></span>
-                            <input type="text" class="form-control" id="exampleInputIconLeft" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
-                        </div>
+                            <input type="text" class="form-control" id="searchInput" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2" value="{{ search_text }}">
+                        </div>                        
                     </div>
                     <div class="col-4 col-md-2 col-xl-1 pl-md-0 text-right">
                         <div class="btn-group">
@@ -53,11 +53,11 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Name</th>						
+                            <th>Acc#</th>
+                            <th>Full Name</th>						
                             <th>Age</th>
                             <th>Email</th>
-                            <th>Total</th>
+                            <th>Contact</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -66,14 +66,22 @@
                     <tbody>
                         <!-- Item -->
                         <tr>
-                            <td>{{ forloop.counter }}</td>
+                            <td>{{member.account_number}}</td>
                             <td>
-                                <span class="font-weight-normal">{{ member.name }}</span>
+                                <span class="font-weight-normal">{{ member.name }} {{ member.mname }} {{ member.lname }}</span>
                             </td>
                             <td><span class="font-weight-normal">{{ member.age }}</span></td>                        
                             <td><span class="font-weight-normal">{{ member.email }}</span></td>
-                            <td><span class="font-weight-bold">$799,00</span></td>
-                            <td><span class="font-weight-bold text-warning">Due</span></td>
+                            <td><span class="font-weight-bold">{{ member.contact_number }}</span></td>
+                            <td>
+                                {% if member.status == "pending" %}
+                                    <span class="font-weight-bold text-warning">{{ member.status }}</span>
+                                {% elif member.status == "disapprove" %}
+                                    <span class="font-weight-bold text-danger">{{ member.status }}</span>
+                                {% else %}
+                                    <span class="font-weight-bold text-success">active</span>
+                                {% endif %}
+                            </td>
                             <td>
                                 <div class="btn-group">
                                     <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -133,4 +141,5 @@
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->
-{% block javascripts %}{% endblock javascripts %}
+{% block javascripts %}
+{% endblock javascripts %}

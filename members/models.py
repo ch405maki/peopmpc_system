@@ -56,6 +56,12 @@ class Member(models.Model):
         ('P150,000.00 Above', 'P150,000.00 Above'),
     )
 
+    STATUS_CHOICES = (
+        ('approve', 'Approve'),
+        ('pending', 'Pending'),
+        ('disapprove', 'Disapprove'),
+    )
+
     # Data fields
     name = models.CharField(max_length=100)
     mname = models.CharField(max_length=100, default='')
@@ -104,7 +110,7 @@ class Member(models.Model):
     employer_city = models.CharField(max_length=100, null=True)
     employer_province = models.CharField(max_length=100, null=True)
 
-    sname = models.CharField(max_length=100)
+    sfname = models.CharField(max_length=100, null=True)
     smname = models.CharField(max_length=100, default='')
     slname = models.CharField(max_length=100, default='')
     ssname = models.CharField(max_length=100, default='')
@@ -112,6 +118,9 @@ class Member(models.Model):
     sage = models.IntegerField(null=True)
     sbplace = models.CharField(max_length=255, null=True, blank=True)
     seducational_attainment = models.CharField(max_length=20, choices=EDUCATIONAL_ATTAINMENT_CHOICES, default='None')
+
+    account_number = models.IntegerField(null=True, unique=True)
+    status = models.CharField(max_length=20, default='pending', choices=STATUS_CHOICES)
 
     profile_picture = models.ImageField(default='profile.png', upload_to='profile_pics')
 
