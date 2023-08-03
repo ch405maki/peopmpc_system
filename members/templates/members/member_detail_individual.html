@@ -269,9 +269,18 @@
                                         {{ member.email }}
                                     </h5>
                                     <p class="text-gray mb-4">{{ member.current_barangay }} {{ member.current_city }} {{ member.current_province }}</p>
-                                    <a class="btn btn-sm btn-primary mr-2" href="#"><span
-                                            class="fas fa-user-plus mr-1"></span> Connect</a>
-                                    <a class="btn btn-sm btn-secondary" href="#">Send Message</a>
+                                    <td>
+                                      {% if member.status == "pending" %}
+                                          <span class="badge bg-warning text-dark badge-lg">Status: Pending</span>
+                                      {% elif member.status == "disapprove" %}
+                                          <span class="badge bg-danger badge-lg">Status: Disapprove</span>
+                                      {% else %}
+                                          <span class="badge bg-success badge-lg">Status: Active</span>
+                                      {% endif %}
+                                  </td>
+                                    <!-- <a class="btn btn-sm btn-primary mr-2" href="#"><span
+                                            class="fas fa-user-plus mr-1"></span></a>
+                                    <a class="btn btn-sm btn-secondary" href="#">Send Message</a> -->
                                 </div>
                             </div>
                         </div>

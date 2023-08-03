@@ -6,8 +6,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('create/', views.create_member, name='create_member'),
-    path('register/', views.create_member, name='register_member'),
-    path('account/', views.create_member, name='account_number'),
+    path('register/', views.register_member, name='register_member'),
+    path('account/<str:account_number>/<str:name>/<str:mname>/<str:lname>/', views.account_number, name='account_number'),
     path('detail/', views.member_detail, name='member_detail'),
     path('update/<int:pk>/', views.MemberUpdateView.as_view(), name='update_member'),
     path('delete/<int:pk>/', views.MemberDeleteView.as_view(), name='delete_member'),

@@ -8,6 +8,8 @@
 {% block content %}
 
 
+
+
 <nav class="navbar container-fluid fixed-top navbar-dark bg-dark">
     <div class="container"><a class="navbar-brand" href="#">
         <img src="/static/assets/img/logo.png" style="width: 30%;" alt="Logo" class="img-fluid">
@@ -15,21 +17,128 @@
         <div class="d-flex align-items-center ml-auto">
             <a href="/" 
                class="btn btn-outline-soft d-none d-lg-block">
-               <span class="fas fa-sign-out-alt mr-2"></span> Home</a>
+               <span class="fas fa-home mr-2"></span> Home</a>
             </button>
         </div>
     </a></div>
 </nav>
+
     <main class="container">
 
-        <h2 class="h4">Account Number:123-12345</h2>
+        <div class="py-4">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                    <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
+                    <li class="breadcrumb-item"><a href="#">Membership</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Forms</li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="welcome-container align-items-center">
+            <h2 class="h4">General Information!</h2>
+            <p class="mb-0 ml-2 text-danger"><i>*Please take note of the following information</i></p>
+            <p class="mb-0 ml-2 text-danger"><i>*Proceed to P E O P M P C office for activation</i></p>
+          </div>
+          
+          
         <!-- {{ form|crispy }} -->
 
-        {% include 'includes/footer.html' %}
+        <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Full Name</th>
+                  <th>Application Number</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>{{ name }} {{ mname }}, {{ lname }}</b></td>
+                  <td>Application Number: <b>{{ account_number }}</b></td>
+                  <td class="text-warning"><b>Pending</b></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+
+
+    <!-- footer section  -->
+        <footer class="footer py-6 fixed-bottom container-fluidbg-primary text-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img class="navbar-brand-dark mb-4" height="35" src="/static/assets/img/logo.png" alt="Logo light">
+                        <span><p><i>Provincial Engineering Office Personel Multi-Purpose Cooperative</i></p></span>
+                        <p><i>CDA Reg. No.: 9520 - 15007223 <br> CIN No.: 0101150047</i></p>
+                        <ul class="social-buttons mb-5 mb-lg-0">
+                            <li>
+                                <a href="#" aria-label="twitter social link" class="icon-white mr-2">
+                                    <span class="fab fa-twitter"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="icon-white mr-2" aria-label="facebook social link">
+                                    <span class="fab fa-facebook"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" aria-label="github social link" class="icon-white mr-2">
+                                    <span class="fab fa-github"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="icon-white" aria-label="dribbble social link" >
+                                    <span class="fab fa-dribbble"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-2 mb-5 mb-lg-0">
+                        <span class="h5">P E O P M P C</span>
+                        <ul class="links-vertical mt-2">
+                            <li><a target="_blank" href="#">Blog</a></li>
+                            <li><a target="_blank" href="#">Products</a></li>
+                            <li><a target="_blank" href="#">About Us</a></li>
+                            <li><a target="_blank" href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6 mb-5 mb-lg-0">
+                        <span class="h5 mb-3 d-block">Contact Us</span>
+                        <ul class="nav flex-column">
+                            <li>
+                                <span class="sidebar-icon"><span class="fas fa-envelope"></span></span>
+                                <span>peopmpc@gmail.com</span>
+                            </li>
+                            <li>
+                                <span class="sidebar-icon"><span class="fas fa-mobile-alt"></span></span>
+                                <span>(074)-624-1282</span>
+                            </li>
+                            <li role="separator" class="dropdown-divider mt-2 mb-3 border-black"></li>
+                            <li>
+                                <span class="sidebar-icon"><span class="fas fa-mobile-alt"></span></span>
+                                <span> PEOPMPC Credit: 0955-380-5521 / 0961-316-7238</span>
+                            </li>
+                            <li>
+                                <span class="sidebar-icon"><span class="fas fa-mobile-alt"></span></span>
+                                <span> PEOPMPC General Merchandise: 0921-990-2489 / 0906-884-7833</span>
+                            </li>
+                            <li>
+                                <span class="sidebar-icon"><span class="fas fa-mobile-alt"></span></span>
+                                <span> PEOPMPC Water Reffiling Station: 0908-299-9171 / 0916-498-0226</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
     </main>
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->
 {% block javascripts %}
+
 {% endblock javascripts %}

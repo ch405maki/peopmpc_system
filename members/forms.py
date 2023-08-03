@@ -1,5 +1,6 @@
 from django import forms
 from .models import Member
+import random
 
 class MemberForm(forms.ModelForm):
     class Meta:
@@ -57,3 +58,11 @@ class MemberForm(forms.ModelForm):
             'account_number',
             'status',
         ]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['account_number'].required = False
+
+        # Generate a random account number and set it as the initial value
+        random_account_number = random.randint(100000, 999999)
+        self.fields['account_number'].initial = random_account_number
