@@ -8,13 +8,31 @@
 {% block content %}
                 
     <main class="content">
-
         {% include 'includes/navigation.html' %}
-            <h1>Delete Member</h1>
-            <p>Are you sure you want to delete "{{ object.name }}"?</p>
+        <h1>Delete Member</h1>
+        <p style="color: red;"><i>*Warning For Deletion of Data</i></p>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                    <th>Full Name</th>
+                    <th>Application Number</th>
+                    <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td><b>{{ object.name }} {{ object.mname }}, {{ object.lname }}</b></td>
+                    <td>Application Number: <b>{{ object.account_number }}</b></td>
+                    <td><b>{{ object.status }}</b></td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+
             <form method="post">
                 {% csrf_token %}
-                <input type="submit" value="Confirm Delete">
+                <input class="btn btn-danger" type="submit" value="Confirm Delete">
             </form>
         {% include 'includes/footer.html' %}
 

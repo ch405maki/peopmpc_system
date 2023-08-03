@@ -8,8 +8,6 @@
 {% block content %}
 
 
-
-
 <nav class="navbar container-fluid fixed-top navbar-dark bg-dark">
     <div class="container"><a class="navbar-brand" href="#">
         <img src="/static/assets/img/logo.png" style="width: 30%;" alt="Logo" class="img-fluid">
@@ -23,7 +21,6 @@
     </a></div>
 </nav>
     <main class="container">
-
         <div class="py-4">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
@@ -399,7 +396,7 @@
                 </div>
             </div>
 
-            <div class="col-md-7 mb-3">
+            <div class="col-md-7 mb-3" style="display: none;">
                 <div class="form-group">
                     <label for="{{ form.account_number.id_for_label }}">Account Number</label>
                     {{ form.account_number }}

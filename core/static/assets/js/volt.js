@@ -113,7 +113,7 @@ d.addEventListener("DOMContentLoaded", function(event) {
     var datepickersList = datepickers.map(function (el) {
         return new Datepicker(el, {
             buttonClass: 'btn'
-          });
+        });
     })
 
     if(d.querySelector('.input-slider-container')) {
