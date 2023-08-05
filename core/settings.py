@@ -22,10 +22,12 @@ if not SECRET_KEY:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG   = os.getenv('DEBUG', False)
 DEVEL   = os.getenv('DEVEL', False)
-SERVER  = os.getenv('DEVEL', '127.0.0.1')
+
+# Correct the SERVER variable to 'peopmpc.org'
+SERVER = 'peopmpc.org'
 
 # load production server from .env
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', SERVER]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','peopmpc.org', SERVER]
 
 # Application definition
 
